@@ -2,7 +2,6 @@ U | TUBE
 -
 
 
-> Added css
 
 > Developer console to obtain Youtube API
 >
@@ -11,4 +10,4 @@ U | TUBE
 > Instagram inspired title.. 🤘🏿
 
 	./public/Logo.png
-> Initial helper Component Setups.
+> Initial helper Component and CSS Setups.
