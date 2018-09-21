@@ -24,7 +24,6 @@ class App extends Component {
   videoSearch(term){
     YTSearch({key: API_KEY, term: term}, (videos) =>{
       this.setState(
-        //{videos} is same as {videos: videos} if the dataThatCameBack is set as same name as key
         {
           videos: videos,
           selectedVideo: videos[0]
