@@ -14,10 +14,13 @@ class App extends Component {
   constructor(){
     super();
 
+    // two key property in React Application: State & Props
+    this.state = {
+      videos: [],
+      selectedVideo: ""
+    }
 
-    // initialize state
-
-    // this.videoSearch('GNR')
+    this.videoSearch('GNR')
   }
 
   videoSearch(term){
@@ -32,14 +35,12 @@ class App extends Component {
   }
 
   render(){
-    // const videoSearch = _.debounce(term => this.videoSearch(term), 500)
-
     return (
       <div>
           <div className="logo-container text-center"><img src="../Logo.png" /></div>
           {/* <SearchBar onSearchTermChange={term => this.videoSearch(term)}/> */}
           <div >
-            {/* <VideoDetail video={this.state.selectedVideo} /> */}
+            <VideoDetail video={this.state.selectedVideo} />
             {/* <VideoList
             onVideoSelect = {selectedVideo => this.setState({selectedVideo})}
             videos={this.state.videos} /> */}

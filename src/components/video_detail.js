@@ -11,9 +11,9 @@ let style = {
   }
 }
 
-var puke = (obj) => {
-  return <pre>{JSON.stringify(obj, null, ' ')}</pre>
-}
+// var puke = (obj) => {
+//   return <pre>{JSON.stringify(obj, null, ' ')}</pre>
+// }
 
 const VideoDetail = ({video}) =>{
   if(!video){
@@ -23,19 +23,18 @@ const VideoDetail = ({video}) =>{
       </div>)
   }
 
-  // const videoData = video.snippet;
-  // const url = `https://www.youtube.com/embed/${}`
+  const {title, description} = video.snippet;
+  const url = `https://www.youtube.com/embed/${video.id.videoId}`
 
   return (
     <div className="video-detail col-md-8">
-      {puke(video)}
-      {/* <div className="embed-responsive embed-responsive-16by9">
-        <iframe className="embed-responsive-item" src={}></iframe>
+      <div className="embed-responsive embed-responsive-16by9">
+        <iframe className="embed-responsive-item" src={url}></iframe>
       </div>
       <div className="details">
-        <div style={style.heading}>{videoData.title}</div>
-        <div style={style.info}>{videoData.description}</div>
-      </div> */}
+        <div style={style.heading}>{title}</div>
+        <div style={style.info}>{description}</div>
+      </div>
     </div>
   )
 }
