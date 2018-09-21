@@ -14,11 +14,10 @@ class App extends Component {
   constructor(){
     super();
 
-    this.state = {
-      videos : [],
-      selectedVideo: null
-    };
-    this.videoSearch('GNR')
+
+    // initialize state
+
+    // this.videoSearch('GNR')
   }
 
   videoSearch(term){
