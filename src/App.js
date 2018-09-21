@@ -1,42 +1,55 @@
 import React, {Component} from 'react';
-import {PropEx} from './PropEx';
-// import logo from './logo.svg';
-import './App.css';
+import YTSearch from 'youtube-api-search';
+import _ from 'lodash';
 
-// two primary attribute: prop and state
-// prop is somthing that floats arount entire app.
-// state is something that is specific  for one component.
+import SearchBar from './components/search_bar';
+import VideoList from './components/video_list';
+import VideoDetail from './components/video_detail';
+
+const API_KEY = process.env.REACT_APP_API_KEY;
+
+
 
 class App extends Component {
   constructor(){
-      super();
+    super();
 
-      this.state = {
-        test: "good"
-      }
+    this.state = {
+      videos : [],
+      selectedVideo: null
+    };
+    this.videoSearch('GNR')
   }
 
-  componentWillMount(){
-    // This method gets call when the Component FIRST loads
+  videoSearch(term){
+    YTSearch({key: API_KEY, term: term}, (videos) =>{
+      this.setState(
+        //{videos} is same as {videos: videos} if the dataThatCameBack is set as same name as key
+        {
+          videos: videos,
+          selectedVideo: videos[0]
+        }
+      )
+    })
   }
 
-  componentDidMount() {
-    // This method runs after the render() executes
-  }
+  render(){
+    // const videoSearch = _.debounce(term => this.videoSearch(term), 500)
 
-  componentWillReceiveProps(){
-    // This function runs when the component receives new prop
-  }
-
-  render() {
     return (
-      <div className="App">
-        <div>GI 🤘🏿</div>
-        <PropEx propAtt="GI" />
-      {this.state.test}
+      <div>
+          <div className="logo-container text-center"><img src="../Logo.png" /></div>
+          {/* <SearchBar onSearchTermChange={term => this.videoSearch(term)}/> */}
+          <div >
+            {/* <VideoDetail video={this.state.selectedVideo} /> */}
+            {/* <VideoList
+            onVideoSelect = {selectedVideo => this.setState({selectedVideo})}
+            videos={this.state.videos} /> */}
+          </div>
       </div>
-    );
+    )
   }
 }
+
 
 export default App;
