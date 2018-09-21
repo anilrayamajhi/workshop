@@ -5,6 +5,7 @@
   "dependencies": {
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
+    "dotenv": "^6.0.0",
     "youtube-api-search": "0.0.5"
   },
   "devDependencies": {
